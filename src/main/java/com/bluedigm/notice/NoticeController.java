@@ -19,10 +19,10 @@ public class NoticeController {
     }
 
     // 전체 목록 조회
-    @GetMapping("/")
+    @GetMapping("/main")
     public String list(Model model) {
 
-        // TODO - 이곳에 기능을 넣으세요
+        model.addAttribute("noticelist", noticeService.getNoticeList());    // TODO - 이곳에 기능을 넣으세요
 
         return "list";
     }
@@ -44,9 +44,8 @@ public class NoticeController {
     @PostMapping("/create")
     public String createNotice(@ModelAttribute NoticeDto noticeDao) {
 
-        // TODO - 이곳에 기능을 넣으세요
-
-        return "redirect:/";
+        noticeService.createNotice(noticeDao);
+        return "redirect:/create";
     }
 
     // 수정 페이지 이동
