@@ -6,13 +6,18 @@
 <mapper namespace="com.bluedigm.notice.NoticeMapper">
 
     <select id="getNoticeList" resultType="com.bluedigm.notice.NoticeDto">
-        <!-- TODO - 이곳에 쿼리를 입력하세요 -->
+        select
+            id
+            , title
+            , userId
+            , hit
+            , regDate
+
+        from tb_notice;
     </select>
 
     <select id="getNotice" resultType="com.bluedigm.notice.NoticeDto">
-        <!-- TODO - 이곳에 쿼리를 입력하세요 -->
     </select>
-
     <insert id="createNotice" parameterType="com.bluedigm.notice.NoticeDto">
         <!-- TODO - 이곳에 쿼리를 입력하세요 -->
     </insert>
