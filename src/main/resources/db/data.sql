@@ -1,0 +1,2 @@
+insert into tb_notice(id, userId, title, contents, regDate, hit) values(1, '유재석', '첫번째 글입니다.', '나 유재석이 처음으로 쓰는 공지사항 입니다.', now(), 0);
+insert into tb_notice(id, userId, title, contents, regDate, hit) values(2, '원빈', '두번째 글입니다.', '나 원빈이 두번째 쓰는 공지사항 입니다.', now(), 0);

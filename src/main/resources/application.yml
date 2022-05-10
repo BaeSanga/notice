@@ -1,0 +1,42 @@
+
+spring:
+  datasource:
+    #driver-class-name: net.
+    driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+    url: jdbc:log4jdbc:h2:~/test
+    username: sa
+
+  h2:
+    console:
+      enabled: true
+      settings:
+        web-allow-others: true
+      path: /h2-console
+
+  sql:
+    init:
+      schema-locations: classpath:db/schema.sql
+      data-locations: classpath:db/data.sql
+      mode: always
+
+  output:
+    ansi:
+      enabled: always                # ?? ?? ???? ?? ???? ??? ???? ??
+
+
+# mybatis mapper
+mybatis:
+  mapper-locations: mapper/*.xml
+
+# ?? ?? ??
+logging:
+  level:
+    jdbc:
+      sqlonly: off
+      sqltiming: info
+      resultsettable: info
+      audit: off
+      resultset: off
+      connection: off
+
+
