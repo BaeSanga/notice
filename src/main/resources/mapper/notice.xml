@@ -13,16 +13,29 @@
             , hit
             , regDate
 
-        from tb_notice;
+        from tb_notice
     </select>
 
     <select id="getNotice" resultType="com.bluedigm.notice.NoticeDto">
-    </select>
-    <insert id="createNotice" parameterType="com.bluedigm.notice.NoticeDto">
-        <!-- TODO - 이곳에 쿼리를 입력하세요 -->
-    </insert>
+        SELECT
+            id
+             , userId
+             , title
+             , contents
+             , regDate
+             , hit
 
-    <update id="updateNotice" parameterType="com.bluedigm.notice.NoticeDto">
-        <!-- TODO - 이곳에 쿼리를 입력하세요 -->
+        FROM tb_notice
+
+        WHERE id = #{id}
+
+    </select>
+
+    <insert id="createNotice" parameterType="com.bluedigm.notice.NoticeDto">
+
+     </insert>
+
+     <update id="updateNotice" parameterType="com.bluedigm.notice.NoticeDto">
+         <!-- TODO - 이곳에 쿼리를 입력하세요 -->
     </update>
 </mapper>

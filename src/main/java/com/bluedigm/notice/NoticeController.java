@@ -4,6 +4,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
+
 /**
  * 테이블 정보는 schema.sql과 data.sql을 참고하세요
  * 서버 실행 후 http://localhost:8080/h2-console 을 통해 데이터 베이스 정보 확인이 가능합니다.
@@ -28,10 +30,11 @@ public class NoticeController {
     }
 
     // 개별 조회
-    @GetMapping("/{id}")
+    @GetMapping("/{id}")            //주소 뒤에 {id} 이렇게 id를 받을 때는 @PathVariable을 사용하면 주소의 id로 받음.
     public String viewGetNotice(@PathVariable String id, Model model) {
 
-        return "view";
+        model.addAttribute("view", noticeService.getNotice(id));
+        return "/view";
     }
 
     // 등록 페이지 이동
@@ -45,7 +48,7 @@ public class NoticeController {
     public String createNotice(@ModelAttribute NoticeDto noticeDao) {
 
         noticeService.createNotice(noticeDao);
-        return "redirect:/create";
+        return "redirect:/list";
     }
 
     // 수정 페이지 이동

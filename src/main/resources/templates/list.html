@@ -24,7 +24,7 @@
         <tr th:each="notice :${noticelist}">               <!--Model로 넘어온 값을 th:each를 사용하여 반복적으로 처리할 수 있다. <tr th:each="notice : ${noticelist}">와 같은 방식으로 사용하며, ${list} 로 받아온 것을 변수로 하나씩 가져온다.-->
            <!-- <td th:text="${notice.id}"></td> -->          <!--  변수명 변경, 다른 문법으로도 사용가능 -->
             <td>[[${notice.id}]]</td>
-            <td><a href="create.html">[[${notice.title}]]</a> </td>
+            <td><a href="#">[[${notice.title}]]</a></td>             <!--href은 <a> 태그가 가리키는 URL을 정의-->
             <td>[[${notice.userId}]]</td>
             <td>[[${notice.hit}]]</td>
             <td>[[${notice.regDate}]]</td>

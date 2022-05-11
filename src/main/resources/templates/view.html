@@ -11,27 +11,27 @@
 <table class="table">
     <tr>
         <th>id</th>
-        <td></td>
+        <td><p><td th:text="${view.id}"></td></p></td>
     </tr>
     <tr>
         <th>작성자</th>
-        <td></td>
+        <td><td th:text="${view.userId}"></td></td>
     </tr>
     <tr>
         <th>제목</th>
-        <td></td>
+        <td><td th:text="${view.title}"></td></td>
     </tr>
     <tr>
         <th>내용</th>
-        <td></td>
+        <td><td th:text="${view.contents}"></td></td></textarea>
     </tr>
     <tr>
         <td>등록 날짜</td>
-        <td></td>
+        <td><td th:text="${view.regDate}"></td></td>
     </tr>
     <tr>
         <td>조회수</td>
-        <td>1</td>
+        <td><td th:text="${view.hit}"></td></td>
     </tr>
 </table>
 <a href="/update" class="btn btn-secondary btn-lg">수정하기</a>

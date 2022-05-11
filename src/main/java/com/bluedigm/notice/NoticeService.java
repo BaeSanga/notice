@@ -17,8 +17,8 @@ public class NoticeService {
         return noticeMapper.getNoticeList();
     }
 
-    public NoticeDto getNotice() {
-        return null;
+    public NoticeDto getNotice(String id) {
+        return noticeMapper.getNotice(id);
     }
 
     public Integer createNotice(NoticeDto noticeDao) {

@@ -8,7 +8,7 @@ import java.util.List;
 public interface NoticeMapper {
 
     List<NoticeDto> getNoticeList();
-    NoticeDto getNotice();
+    NoticeDto getNotice(String id);
     Integer createNotice(NoticeDto noticeDao);
     Integer updateNotice(NoticeDto noticeDao);
 }
