@@ -24,13 +24,17 @@ public class NoticeController {
     @GetMapping("/main")
     public String list(Model model) {
 
-        model.addAttribute("noticelist", noticeService.getNoticeList());    // TODO - 이곳에 기능을 넣으세요
+        model.addAttribute("noticelist", noticeService.getNoticeList());
 
         return "list";
     }
 
     // 개별 조회
-    @GetMapping("/{id}")            //주소 뒤에 {id} 이렇게 id를 받을 때는 @PathVariable을 사용하면 주소의 id로 받음.
+    @GetMapping("/main/{id}")                                      //{ } 안에 들어있는 이름과 @PathVariable를 사용한 변수명이 일치해야 한다.
+                                                                     //주소 뒤에 {id} 이렇게 id를 받을 때는 @PathVariable을 사용하면 주소의 id로 받음.
+/*
+    @RequestMapping(value = "//main/{id}", method = RequestMethod.GET)
+*/
     public String viewGetNotice(@PathVariable String id, Model model) {
 
         model.addAttribute("view", noticeService.getNotice(id));
@@ -48,7 +52,8 @@ public class NoticeController {
     public String createNotice(@ModelAttribute NoticeDto noticeDao) {
 
         noticeService.createNotice(noticeDao);
-        return "redirect:/list";
+
+        return "redirect:/main";
     }
 
     // 수정 페이지 이동
