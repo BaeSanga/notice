@@ -16,7 +16,7 @@
         from tb_notice
     </select>
 
-    <select id="getNotice" resultType="com.bluedigm.notice.NoticeDto">
+    <select id="getNotice" resultType="com.bluedigm.notice.NoticeDto">    <!--id=메소드명 , resultType=반환타입-->
         SELECT
             id
              , userId
