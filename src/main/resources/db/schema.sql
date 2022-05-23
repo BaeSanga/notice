@@ -4,7 +4,7 @@ CREATE TABLE tb_notice (                    --테이블 생성
       id        INTEGER IDENTITY PRIMARY KEY,           --정수 ID 기본 키
       userId    VARCHAR(30),
       title     VARCHAR(100),
-      contents  varchar(500),
+      contents  VARCHAR(500),
       regDate   datetime,                --datetime 형식 : YYYY-MM-DD hh:mm:ss[.nnn]
       hit       INTEGER
 );
