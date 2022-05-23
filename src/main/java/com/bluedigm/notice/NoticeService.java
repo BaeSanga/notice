@@ -1,7 +1,5 @@
 package com.bluedigm.notice;
-
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 @Service
@@ -17,16 +15,20 @@ public class NoticeService {
         return noticeMapper.getNoticeList();
     }
 
-    public NoticeDto getNotice(String id) {
+    public NoticeDto getNotice(Integer id) {
         return noticeMapper.getNotice(id);
     }
 
-    public Integer createNotice(NoticeDto noticeDao) {
+    public Integer createNotice(NoticeDto noticeDto) {
 
-        return noticeMapper.createNotice(noticeDao);
+        return noticeMapper.createNotice(noticeDto);
     }
 
-    public Integer updateNotice(NoticeDto noticeDao) {
-        return null;
+    public Integer updateNotice(NoticeDto noticeDto) {
+        return noticeMapper.updateNotice(noticeDto);
+    }
+
+    public Integer Hit(Integer id){
+        return noticeMapper.Hit(id);
     }
 }
