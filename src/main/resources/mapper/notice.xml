@@ -3,39 +3,75 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.bluedigm.notice.NoticeMapper">
-
+<mapper namespace="com.bluedigm.notice.NoticeMapper">           <!--mapper의 전체 경로-->
+    <!--Mybabtis는 기본적으로 xml 파일에 쿼리문을 넣어서 사용 -->
+    <!--mapper 인터페이스와 XML파일을 매칭 시키기 위해서 mapper 인터페이스의 메소드 명과 XML 파일의 id를 동일하게 작성해줘야함.-->
     <select id="getNoticeList" resultType="com.bluedigm.notice.NoticeDto">
-        select
+        SELECT                  /* id="getNoticeList" */
             id
-            , title
             , userId
-            , hit
+            , title
+            , contents
             , regDate
+            , hit
 
-        from tb_notice
+        FROM
+            tb_notice
     </select>
 
     <select id="getNotice" resultType="com.bluedigm.notice.NoticeDto">    <!--id=메소드명 , resultType=반환타입-->
-        SELECT
+        SELECT                      /* id="getNotice" */
             id
-             , userId
-             , title
-             , contents
-             , regDate
-             , hit
+            , title
+            , userId
+            , contents
+            , regDate
+            , hit
 
-        FROM tb_notice
+        FROM
+             tb_notice
 
-        WHERE id = #{id}
+        WHERE
+              id = #{id}            /*resultType를 통해 id가 NoticeDto객체에 담김*/
 
     </select>
 
     <insert id="createNotice" parameterType="com.bluedigm.notice.NoticeDto">
-
-     </insert>
+        INSERT INTO                       /* id="createNotice" */
+            tb_notice(
+            userId
+            , title
+            , contents
+            , regDate
+            , hit
+        )
+        VALUES (
+            #{userId}
+            , #{title}
+            , #{contents}
+            , NOW()
+            , #{hit}
+        )
+    </insert>
 
      <update id="updateNotice" parameterType="com.bluedigm.notice.NoticeDto">
-         <!-- TODO - 이곳에 쿼리를 입력하세요 -->
+        UPDATE tb_notice                     /* id="updateNotice" */
+            SET
+                id = #{id}
+                , title = #{title}
+                , userId = #{userId}
+                , contents = #{contents}
+                , regDate = NOW()
+                , hit = #{hit}
+            WHERE
+                id = #{id}          /*parameterType을 통해 id를 NoticeDto타입으로 전달받겠다*/
+    </update>
+
+    <update id="Hit" parameterType="com.bluedigm.notice.NoticeDto">
+        UPDATE tb_notice                /* id="Hit" */
+            SET
+                hit = hit + 1
+            WHERE
+                id = #{id}
     </update>
 </mapper>
