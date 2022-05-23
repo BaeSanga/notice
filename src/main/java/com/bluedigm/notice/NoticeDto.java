@@ -1,21 +1,22 @@
 package com.bluedigm.notice;
-
+import java.time.LocalDateTime;
+//데이터 전송 객체
+//DB에서 데이터를 얻어 Service나  Controller등으로 보낼때 사용하는 객체
 public class NoticeDto {
 
-    // TODO - 이곳에 필요한 데이터를 넣으시요.
     private int id;
     private String userId;
     private String title;
     private String contents;
-    private String regDate;
+    private LocalDateTime regDate;
     private int hit;
 
     public int getId() {
         return id;
     }
 
-    public void setId(String id) {
-        this.id = Integer.parseInt(id);
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getUserId() {
@@ -42,11 +43,11 @@ public class NoticeDto {
         this.contents = contents;
     }
 
-    public String getRegDate() {
+    public LocalDateTime  getRegDate() {
         return regDate;
     }
 
-    public void setRegDate(String regDate) {
+    public void setRegDate(LocalDateTime  regDate) {
         this.regDate = regDate;
     }
 
@@ -57,14 +58,4 @@ public class NoticeDto {
     public void setHit(int hit) {
         this.hit = hit;
     }
-
-
-
-
-
-
-
-
-
-
 }
