@@ -7,35 +7,37 @@
 </head>
 <body>
 
-<!-- TODO - 수정할 데이터를 각 INPUT에 넣어주고 저장 버튼을 눌렀을 때 데이터가 수정되도록 작업하세요 -->
-<form method="post" th:action="@{/update}">.
+<form method="post" th:action="@{/update}" >
+<!--<form> 태그의 action 속성은 폼 데이터(form data)를 서버로 보낼 때 해당 데이터가 도착할 URL을 명시-->
 <table class="table">
     <tr>
         <th>id</th>
-        <td>1</td>
+        <td th:text="${update.id}"></td>
+        <input type="hidden" name="id" th:value="${update.id}">
     </tr>
     <tr>
         <th>제목</th>
-        <td><input type="text" name="title" class="form-control" /></td>
+        <td><input th:value="${update.title}" type="text" name="title" class="form-control" /></td>
     </tr>
     <tr>
         <th>작성자</th>
-        <td><input type="text" name="userId" class="form-control" /></td>
+        <td><input th:value="${update.userId}"type="text" name="userId" class="form-control" /></td>
     </tr>
     <tr>
         <th>내용</th>
-        <td><textarea name="contents" class="form-control" rows="3"></textarea></td>
+        <td><textarea th:text="${update.contents}"name="contents" class="form-control" rows="3"></textarea></td>
     </tr>
     <tr>
         <th>등록 날짜</th>
-        <td>날짜</td>
+        <td th:text="${#temporals.format(update.regDate, 'yyyy-MM-dd HH:mm')}"></td>
     </tr>
     <tr>
         <th>조회수</th>
-        <td>조회수</td>
+        <td th:text="${update.hit}"></td>
     </tr>
 </table>
-<a href="/update" class="btn btn-secondary btn-lg">수정하기</a>
+<button type="submit" value="수정하기" class="btn btn-secondary btn-lg">수정</button>
+
 </form>
 <br>
 <p><a href="/main" class="btn btn-secondary btn-lg">목록으로</a></p>
